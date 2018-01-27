@@ -31,7 +31,11 @@ public class TransmitterRotational : Transmitter {
         while (timer <= rotationTime)
         {
             timer += Time.deltaTime;
-            transform.rotation = Quaternion.Lerp(startingRotation, targetRotation, timer / rotationTime);
+
+            float t = timer / rotationTime;
+            t = 1f - Mathf.Cos(t * Mathf.PI * 0.5f);
+
+            transform.rotation = Quaternion.Lerp(startingRotation, targetRotation, t);
             yield return null;
         }
 
