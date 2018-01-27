@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4548808139582284}
   - component: {fileID: 33540236237264378}
   - component: {fileID: 23955430653075074}
+  - component: {fileID: 114577990761313534}
   m_Layer: 0
   m_Name: Spark
   m_TagString: Untagged
@@ -80,3 +81,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1110734531243700}
   m_Mesh: {fileID: 4300000, guid: 284b494222331d6458884d9e46163354, type: 3}
+--- !u!114 &114577990761313534
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1110734531243700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed8bf1e8f867a5f46839c5ae4eba2be5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenMoves: 1
+  moveTime: 1
+  transmitterMask:
+    serializedVersion: 2
+    m_Bits: 256
