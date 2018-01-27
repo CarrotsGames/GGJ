@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507726309432994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9784479, y: 4.1795664, z: -1.722002}
+  m_LocalPosition: {x: 6.6826177, y: -4.4726, z: 12.09012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4765797310228192}
@@ -156,7 +156,7 @@ MonoBehaviour:
     type: 2}
   nonTransmitter: {fileID: 1617692176486520, guid: 165882ee42c36d04f93937e2e9c1a9d9,
     type: 2}
-  sparkPrefab: {fileID: 1110734531243700, guid: a858358c567882748a2193230d79ad89,
+  sparkPrefab: {fileID: 1616843970717382, guid: bc22881f596ad4045bb32c8f99a10d3b,
     type: 2}
   transmitterMask:
     serializedVersion: 2
@@ -169,6 +169,6 @@ MonoBehaviour:
     west: 0
   startPoint: 0
   endPoint: 0
-  rotationTime: 1
+  rotationTime: 0.5
   rotationAmount: 90
   clockwiseRotation: 1
