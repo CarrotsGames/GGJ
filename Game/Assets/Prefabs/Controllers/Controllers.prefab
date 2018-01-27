@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4416014186824796}
   - component: {fileID: 114222293204683370}
   - component: {fileID: 114934750667743292}
+  - component: {fileID: 114714868607150464}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -53,6 +54,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   islandTag: Island
+--- !u!114 &114714868607150464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470911686933366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8217a27b9bd8104a9be87014a4030f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114934750667743292
 MonoBehaviour:
   m_ObjectHideFlags: 1
