@@ -40,9 +40,4 @@ public class SnapToNode : MonoBehaviour {
     {
         currentNode = node;
     }
-
-    private void OnDestroy()
-    {
-        currentNode.UpdateOccupied(false);
-    }
 }

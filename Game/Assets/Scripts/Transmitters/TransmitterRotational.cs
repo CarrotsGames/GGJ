@@ -35,6 +35,6 @@ public class TransmitterRotational : Transmitter {
         transform.rotation = targetRotation;
         isRotating = false;
 
-        CheckConnections();
+        transmitterController.UpdateConnections();
     }
 }

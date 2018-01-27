@@ -18,8 +18,11 @@ public class Transmitter : MonoBehaviour {
     public bool endPoint;
     public Color gizmoColour;
 
+    protected TransmitterController transmitterController;
+
     private TransmitterGeneration generation;
     private Connections currentConnections;
+    
 
     // These lists needs to follow the following pattern
     // North, East, South, West, transmitter generation will do this
@@ -32,7 +35,8 @@ public class Transmitter : MonoBehaviour {
         GenerateTransmitter();
         CheckConnections();
 
-        FindObjectOfType<TransmitterController>().AddTransmitter(this);
+        transmitterController = FindObjectOfType<TransmitterController>();
+        transmitterController.AddTransmitter(this);
     }
 
     public virtual void HandleClick() { }
