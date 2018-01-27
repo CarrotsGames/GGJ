@@ -170,10 +170,11 @@ MonoBehaviour:
     type: 2}
   sparkPrefab: {fileID: 1616843970717382, guid: bc22881f596ad4045bb32c8f99a10d3b,
     type: 2}
+  endPointPrefab: {fileID: 1562541927692776, guid: c01bb000bce3f1046bc1fd702b6bf176,
+    type: 2}
   transmitterMask:
     serializedVersion: 2
     m_Bits: 256
-  skinWidth: 0.05
   connections:
     north: 0
     east: 1
