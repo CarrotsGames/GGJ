@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class Map : MonoBehaviour {
     [Header("Map Size")]
     [Range(3, 15)]
@@ -18,7 +18,7 @@ public class Map : MonoBehaviour {
 
     private void OnEnable()
     {
-        BuildNodes();
+       // BuildNodes();
     }
 
     public void BuildNodes()
