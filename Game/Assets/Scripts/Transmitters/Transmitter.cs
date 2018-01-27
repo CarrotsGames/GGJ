@@ -8,6 +8,7 @@ public class Transmitter : MonoBehaviour {
     [Header("Transmitter Prefabs")]
     public GameObject transmitter;
     public GameObject nonTransmitter;
+    public GameObject sparkPrefab;
     public LayerMask transmitterMask;
     public float skinWidth = 0.05f;
 
@@ -31,7 +32,7 @@ public class Transmitter : MonoBehaviour {
         GenerateTransmitter();
         CheckConnections();
 
-        GameObject.FindObjectOfType<TransmitterController>().AddTransmitter(this);
+        FindObjectOfType<TransmitterController>().AddTransmitter(this);
     }
 
     public virtual void HandleClick() { }
@@ -51,7 +52,6 @@ public class Transmitter : MonoBehaviour {
 
     private bool HasConnection(GameObject transmitter)
     {
-
         Vector3 rayOrigin = transmitter.transform.position + transmitter.transform.forward;
         Ray ray = new Ray(rayOrigin, transmitter.transform.forward);
         RaycastHit hit;
@@ -76,6 +76,9 @@ public class Transmitter : MonoBehaviour {
                 pieces[i].GetComponent<LineRenderer>().enabled = false;
             }
         }
+
+        if (startPoint)
+            Instantiate(sparkPrefab, transform.position, Quaternion.identity); 
     }
 
     private void DrawConnections()
@@ -126,14 +129,5 @@ public class Transmitter : MonoBehaviour {
                 pieces[3].GetComponent<LineRenderer>().enabled = false;
         }
 
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (Application.isPlaying)
-            return;
-
-        Gizmos.color = gizmoColour;
-        Gizmos.DrawCube(transform.position, Vector3.one);
     }
 }

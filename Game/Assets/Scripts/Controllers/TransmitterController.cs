@@ -23,4 +23,9 @@ public class TransmitterController : MonoBehaviour {
             transmitters[i].CheckConnections();
         }
     }
+
+    public Transmitter GetTransmitter(Vector3 position)
+    {
+        return transmitters.Find(t => t.transform.position == position);
+    }
 }
