@@ -10,6 +10,7 @@ public class Transmitter : MonoBehaviour {
     public GameObject nonTransmitter;
     public GameObject sparkPrefab;
     public GameObject endPointPrefab;
+    public GameObject endPointParticle;
     public LayerMask transmitterMask;
 
     [Header("Transmitter Options")]
@@ -68,7 +69,8 @@ public class Transmitter : MonoBehaviour {
         if (transmitterController.AnyMoving)
             return;
 
-        spark.ConnectionBroken();
+        if(spark != null)
+            spark.ConnectionBroken();
     }
 
     public void GiveSpark(Spark spark)
@@ -140,6 +142,7 @@ public class Transmitter : MonoBehaviour {
         if (endPoint)
         {
             // Spawn the end point thing here
+            Instantiate(endPointParticle, transform.position, endPointParticle.transform.rotation);
         }
             
     }
