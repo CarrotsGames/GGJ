@@ -34,7 +34,10 @@ public class Transmitter : MonoBehaviour {
 
     protected void CheckConnections()
     {
-        if(connections.north)
+        if (connections.north)
+        {
+
+        }
     }
 
 
