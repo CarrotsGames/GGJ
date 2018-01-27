@@ -44,7 +44,7 @@ public class Spark : MonoBehaviour {
     
     private void CheckMove()
     {
-        if (isMoving)
+        if (isMoving || shouldCheck)
             return;
 
         if (currentTransmitter.IsMoving && transform.position != currentTransmitter.transform.position)
@@ -67,7 +67,6 @@ public class Spark : MonoBehaviour {
         if (currentTransmitter.HasConnections)
         {
             List<GameObject> connectedPieces = currentTransmitter.GetConnectedPieces();
-            Debug.Log(connectedPieces.Count);
 
             for (int i = 0; i < connectedPieces.Count; i++)
             {
@@ -85,6 +84,7 @@ public class Spark : MonoBehaviour {
                     StartCoroutine(Move(t));
                     shouldCheck = false;
 
+                    currentTransmitter.RemoveSpark();
                     previousTransmitter = currentTransmitter;
                     currentTransmitter = t;
                     currentTransmitter.GiveSpark(this);
