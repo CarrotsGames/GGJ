@@ -62,8 +62,8 @@ public class Transmitter : MonoBehaviour {
 
     public virtual void HandleClick(int direction)
     {
-        if (spark)
-            spark.ConnectionBroken();
+        if (transmitterController.AnyMoving)
+            return;
     }
 
     public void GiveSpark(Spark spark)

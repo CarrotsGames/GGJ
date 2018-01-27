@@ -12,6 +12,9 @@ public class TransmitterRotational : Transmitter {
     {
         base.HandleClick(direction);
 
+        if (spark)
+            spark.ConnectionBroken();
+
         if (transmitterController.AnyMoving)
             return;
 
