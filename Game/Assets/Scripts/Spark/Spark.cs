@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class Spark : MonoBehaviour {
     public float timeBetweenMoves = 1f;
+	public float timeBeforeBreak = 3f;
     public float moveTime = 1f;
     public LayerMask transmitterMask;
 
     public bool IsMoving { get { return isMoving; } }
     public Transmitter CurrentTransmitter { get { return currentTransmitter; } }
 
-    private float count;
+	private float moveCount;
+	private float breakCount;
     private bool shouldCheck;
     private bool isMoving;
 
@@ -53,11 +55,11 @@ public class Spark : MonoBehaviour {
         if (currentTransmitter.IsMoving && transform.position != currentTransmitter.transform.position)
             transform.position = currentTransmitter.transform.position;
 
-        count += Time.deltaTime;
+        moveCount += Time.deltaTime;
 
-        if(count >= timeBetweenMoves)
+        if(moveCount >= timeBetweenMoves)
         {
-            count = 0f;
+            moveCount = 0f;
             shouldCheck = true;
         }
     }
@@ -69,6 +71,16 @@ public class Spark : MonoBehaviour {
 
         if (currentTransmitter.HasConnections)
         {
+			if (previousTransmitter != null) {
+				breakCount += Time.deltaTime;
+
+				if (breakCount >= timeBeforeBreak) {
+					breakCount = 0f;
+					previousTransmitter.RemoveSpark ();
+					previousTransmitter = null;
+				}
+			}
+
             List<GameObject> connectedPieces = currentTransmitter.GetConnectedPieces();
 
             for (int i = 0; i < connectedPieces.Count; i++)

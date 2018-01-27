@@ -66,5 +66,6 @@ public class TransmitterSlide : Transmitter {
 
         isMoving = false;
         transmitterController.UpdateConnections();
+		transmitterController.DrawConnections();
     }
 }

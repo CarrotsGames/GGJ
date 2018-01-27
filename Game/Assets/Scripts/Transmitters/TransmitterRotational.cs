@@ -15,9 +15,6 @@ public class TransmitterRotational : Transmitter {
 
         DeactivateConnections();
 
-        if (spark)
-            spark.ConnectionBroken();
-
         if (transmitterController.AnyMoving)
             return;
 
