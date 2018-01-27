@@ -67,7 +67,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507726309432994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.734146, y: -0.81700015, z: 2.8130903}
+  m_LocalPosition: {x: -4.69073, y: 6.2332344, z: -12.108578}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4765797310228192}
@@ -160,10 +160,11 @@ MonoBehaviour:
   transmitterMask:
     serializedVersion: 2
     m_Bits: 256
+  skinWidth: 0.05
   connections:
     north: 0
-    east: 0
-    south: 0
+    east: 1
+    south: 1
     west: 0
   startPoint: 0
   endPoint: 0
