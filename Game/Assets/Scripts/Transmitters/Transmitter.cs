@@ -17,41 +17,35 @@ public class Transmitter : MonoBehaviour {
     public Color gizmoColour;
 
     private TransmitterGeneration generation;
+    private Connections currentConnections;
 
-	void Awake () {
+    // These lists needs to follow the following pattern
+    // North, East, South, West, transmitter generation will do this
+    private List<GameObject> pieces;
+
+    void Awake () {
         if (map == null)
             map = FindObjectOfType<Map>();
 
-        generation = new TransmitterGeneration();
-        generation.Generate(connections, transmitter, nonTransmitter, transform);
+        GenerateTransmitter();
     }
 
     public virtual void HandleClick() { }
 
     protected void CheckConnections()
     {
-        if (connections.north)
-        {
-            
-        }
-
-        if (connections.east)
-        {
-
-        }
-
-        if (connections.south)
-        {
-
-        }
-
-        if (connections.west)
-        {
-
-        }
+        if(connections.north)
     }
 
-    private void OnDrawGizmosSelected()
+
+
+    private void GenerateTransmitter()
+    {
+        generation = gameObject.AddComponent<TransmitterGeneration>();
+        pieces = generation.Generate(connections, transmitter, nonTransmitter, transform);
+    }
+
+    private void OnDrawGizmos()
     {
         if (Application.isPlaying)
             return;
