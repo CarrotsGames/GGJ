@@ -36,7 +36,7 @@ GameObject:
   - component: {fileID: 4985458509106446}
   - component: {fileID: 114708951971145222}
   - component: {fileID: 65797396243665658}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Island
   m_TagString: Island
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1665277281624862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.352682, y: -1.8900313, z: 8.749593}
+  m_LocalPosition: {x: 0.3092699, y: 6.2332344, z: -22.108578}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4188559486746608}
@@ -170,7 +170,8 @@ MonoBehaviour:
     type: 2}
   sparkPrefab: {fileID: 1616843970717382, guid: bc22881f596ad4045bb32c8f99a10d3b,
     type: 2}
-  endPointPrefab: {fileID: 1562541927692776, guid: c01bb000bce3f1046bc1fd702b6bf176,
+  endPointPrefab: {fileID: 0}
+  endPointParticle: {fileID: 1660793031388366, guid: b5b4ca0cf9fa96d46880b81d9f3a0caf,
     type: 2}
   transmitterMask:
     serializedVersion: 2
@@ -179,6 +180,6 @@ MonoBehaviour:
     north: 0
     east: 1
     south: 0
-    west: 0
+    west: 1
   startPoint: 0
-  endPoint: 0
+  endPoint: 1
