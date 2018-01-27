@@ -47,10 +47,14 @@ public class TransmitterSlide : Transmitter {
         while (timer <= slideTime)
         {
             timer += Time.deltaTime;
-            transform.position = Vector3.Lerp(startPosition, endPosition, timer / slideTime);
+
+            float t = timer / slideTime;
+            t = 1f - Mathf.Cos(t * Mathf.PI * 0.5f);
+
+            transform.position = Vector3.Lerp(startPosition, endPosition, t);
 
             if (spark)
-                spark.transform.position = Vector3.Lerp(startPosition, endPosition, timer / slideTime);
+                spark.transform.position = Vector3.Lerp(startPosition, endPosition, t);
 
             yield return null;
         }
