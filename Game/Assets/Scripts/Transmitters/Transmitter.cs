@@ -16,7 +16,28 @@ public class Transmitter : MonoBehaviour {
     public Connections connections;
     public bool startPoint;
     public bool endPoint;
-    public Color gizmoColour;
+
+    public bool IsMoving { get { return isMoving; } }
+
+    protected bool isMoving;
+    protected Spark spark;
+
+    public bool HasConnections
+    {
+        get
+        {
+            if (currentConnections.north)
+                return true;
+            if (currentConnections.east)
+                return true;
+            if (currentConnections.south)
+                return true;
+            if (currentConnections.west)
+                return true;
+            
+                return false;
+        }
+    }
 
     protected TransmitterController transmitterController;
 
@@ -39,7 +60,21 @@ public class Transmitter : MonoBehaviour {
         transmitterController.AddTransmitter(this);
     }
 
-    public virtual void HandleClick() { }
+    public virtual void HandleClick(int direction)
+    {
+        if (spark)
+            spark.ConnectionBroken();
+    }
+
+    public void GiveSpark(Spark spark)
+    {
+        this.spark = spark;
+    }
+
+    public void RemoveSpark()
+    {
+        spark = null;
+    }
 
     public void CheckConnections()
     {
@@ -52,6 +87,22 @@ public class Transmitter : MonoBehaviour {
         currentConnections.west = connections.west && HasConnection(pieces[3]);
 
         DrawConnections();
+    }
+
+    public List<GameObject> GetConnectedPieces()
+    {
+        List<GameObject> connected = new List<GameObject>();
+
+        if (currentConnections.north)
+            connected.Add(pieces[0]);
+        if (currentConnections.east)
+            connected.Add(pieces[1]);
+        if (currentConnections.south)
+            connected.Add(pieces[2]);
+        if (currentConnections.west)
+            connected.Add(pieces[3]);
+
+        return connected;
     }
 
     private bool HasConnection(GameObject transmitter)
@@ -82,7 +133,11 @@ public class Transmitter : MonoBehaviour {
         }
 
         if (startPoint)
-            Instantiate(sparkPrefab, transform.position, Quaternion.identity); 
+        {
+            Spark spark = Instantiate(sparkPrefab, transform.position, Quaternion.identity).GetComponent<Spark>();
+            spark.GiveTransmitter(this);
+        }
+            
     }
 
     private void DrawConnections()

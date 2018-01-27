@@ -8,19 +8,19 @@ public class TransmitterRotational : Transmitter {
     public float rotationAmount = 90;
     public bool clockwiseRotation = true;
 
-    private bool isRotating;
-
-    public override void HandleClick()
+    public override void HandleClick(int direction)
     {
-        if (isRotating)
+        base.HandleClick(direction);
+
+        if (transmitterController.AnyMoving)
             return;
 
-        StartCoroutine(Rotate(clockwiseRotation ? 1 : -1));
+        StartCoroutine(Rotate(direction));
     }
 
     private IEnumerator Rotate(float direction)
     {
-        isRotating = true;
+        isMoving = true;
         Quaternion startingRotation = transform.rotation;
         Quaternion targetRotation = Quaternion.Euler(0, direction * rotationAmount, 0) * startingRotation;
 
@@ -33,7 +33,7 @@ public class TransmitterRotational : Transmitter {
         }
 
         transform.rotation = targetRotation;
-        isRotating = false;
+        isMoving = false;
 
         transmitterController.UpdateConnections();
     }

@@ -14,6 +14,7 @@ public class InputController : MonoBehaviour {
 
 	void Update () {
         CheckLeftMouse();
+        CheckRightMouse();
 	}
 
     private void CheckLeftMouse()
@@ -26,7 +27,21 @@ public class InputController : MonoBehaviour {
             if(Physics.Raycast(ray, out hit))
             {
                 if (hit.transform.tag == islandTag)
-                    hit.transform.GetComponent<Transmitter>().HandleClick();
+                    hit.transform.GetComponent<Transmitter>().HandleClick(1);
+            }
+        }
+    }
+    private void CheckRightMouse()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            RaycastHit hit;
+            Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform.tag == islandTag)
+                    hit.transform.GetComponent<Transmitter>().HandleClick(-1);
             }
         }
     }

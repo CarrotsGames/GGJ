@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TransmitterController : MonoBehaviour {
+    public bool AnyMoving { get { return transmitters.Exists(t => t.IsMoving); } }
+
     private List<Transmitter> transmitters;
 
     public void AddTransmitter(Transmitter transmitter)
