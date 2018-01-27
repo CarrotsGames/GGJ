@@ -32,7 +32,7 @@ RenderSettings:
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 0
+  m_DefaultReflectionMode: 1
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
@@ -395,7 +395,7 @@ Camera:
   m_GameObject: {fileID: 907224112}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -405,7 +405,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 49.9
+  field of view: 60
   orthographic: 0
   orthographic size: 7.2
   m_Depth: -1
@@ -430,7 +430,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 907224112}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 5.36, y: 15.22, z: 4.7}
+  m_LocalPosition: {x: 5.36, y: 12, z: 4.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -485,10 +485,10 @@ MonoBehaviour:
     type: 2}
   sparkPrefab: {fileID: 1616843970717382, guid: bc22881f596ad4045bb32c8f99a10d3b,
     type: 2}
+  endPointPrefab: {fileID: 0}
   transmitterMask:
     serializedVersion: 2
     m_Bits: 256
-  skinWidth: 0.05
   connections:
     north: 1
     east: 1
@@ -639,10 +639,10 @@ MonoBehaviour:
     type: 2}
   sparkPrefab: {fileID: 1616843970717382, guid: bc22881f596ad4045bb32c8f99a10d3b,
     type: 2}
+  endPointPrefab: {fileID: 0}
   transmitterMask:
     serializedVersion: 2
     m_Bits: 256
-  skinWidth: 0.05
   connections:
     north: 0
     east: 1
