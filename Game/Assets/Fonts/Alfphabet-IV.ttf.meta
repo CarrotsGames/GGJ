@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a13a417814353e446b51268b4ecc0434
+timeCreated: 1517091919
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Alfphabet
+  fontNames:
+  - Alfphabet
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
