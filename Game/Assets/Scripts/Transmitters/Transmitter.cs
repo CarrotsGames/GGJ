@@ -68,7 +68,7 @@ public class Transmitter : MonoBehaviour {
         if (transmitterController.AnyMoving)
             return;
 
-        DeactivateConnections();
+        spark.ConnectionBroken();
     }
 
     public void GiveSpark(Spark spark)
@@ -226,7 +226,7 @@ public class Transmitter : MonoBehaviour {
         parent.GetChild(0).gameObject.SetActive(false);
     }
 
-    private void DeactivateConnections()
+    protected void DeactivateConnections()
     {
         if (connections.north)
         {

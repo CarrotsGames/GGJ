@@ -12,7 +12,10 @@ public class TransmitterSlide : Transmitter {
 
     public override void HandleClick(int direction)
     {
-        base.HandleClick(direction);
+        if (transmitterController.AnyMoving)
+            return;
+
+        DeactivateConnections();
         Slide(direction);
     }
 

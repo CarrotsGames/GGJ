@@ -10,7 +10,10 @@ public class TransmitterRotational : Transmitter {
 
     public override void HandleClick(int direction)
     {
-        base.HandleClick(direction);
+        if (transmitterController.AnyMoving)
+            return;
+
+        DeactivateConnections();
 
         if (spark)
             spark.ConnectionBroken();

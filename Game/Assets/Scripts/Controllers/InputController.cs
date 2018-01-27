@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputController : MonoBehaviour {
     public string islandTag;
@@ -19,7 +20,7 @@ public class InputController : MonoBehaviour {
 
     private void CheckLeftMouse()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject() == false)
         {
             RaycastHit hit;
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
@@ -33,7 +34,7 @@ public class InputController : MonoBehaviour {
     }
     private void CheckRightMouse()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && EventSystem.current.IsPointerOverGameObject() == false)
         {
             RaycastHit hit;
             Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
