@@ -157,9 +157,12 @@ MonoBehaviour:
     type: 2}
   nonTransmitter: {fileID: 1617692176486520, guid: 165882ee42c36d04f93937e2e9c1a9d9,
     type: 2}
+  sparkPrefab: {fileID: 1110734531243700, guid: a858358c567882748a2193230d79ad89,
+    type: 2}
   transmitterMask:
     serializedVersion: 2
     m_Bits: 256
+  skinWidth: 0.05
   connections:
     north: 0
     east: 0
