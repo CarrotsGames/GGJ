@@ -1192,7 +1192,7 @@ Prefab:
     - target: {fileID: 114503513968472068, guid: 43c9130925bbbb845b7cea75d4738113,
         type: 2}
       propertyPath: connections.east
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114503513968472068, guid: 43c9130925bbbb845b7cea75d4738113,
         type: 2}
@@ -1203,6 +1203,11 @@ Prefab:
         type: 2}
       propertyPath: connections.south
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114503513968472068, guid: 43c9130925bbbb845b7cea75d4738113,
+        type: 2}
+      propertyPath: connections.north
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 43c9130925bbbb845b7cea75d4738113, type: 2}
