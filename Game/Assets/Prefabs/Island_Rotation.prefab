@@ -37,7 +37,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4812592016050746}
-  - component: {fileID: 114959508950643578}
   - component: {fileID: 114503513968472068}
   - component: {fileID: 65714465171035214}
   m_Layer: 0
@@ -67,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507726309432994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.956073, y: 5.9668217, z: -6.4711275}
+  m_LocalPosition: {x: 0.9784479, y: 4.1795664, z: -1.722002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4765797310228192}
@@ -170,18 +169,6 @@ MonoBehaviour:
     west: 0
   startPoint: 0
   endPoint: 0
-  gizmoColour: {r: 0.7794118, g: 0.57882786, b: 0.57882786, a: 0.659}
   rotationTime: 1
   rotationAmount: 90
   clockwiseRotation: 1
---- !u!114 &114959508950643578
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1507726309432994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f70fbd5f625acff438123d0dc3377eb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
