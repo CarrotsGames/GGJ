@@ -26,6 +26,17 @@ public class TransmitterController : MonoBehaviour {
         }
     }
 
+    public void DrawConnections()
+    {
+        if (transmitters.IsNullOrEmpty())
+            return;
+
+        for (int i = 0; i < transmitters.Count; i++)
+        {
+            transmitters[i].DrawConnections();
+        }
+    }
+
     public Transmitter GetTransmitter(Vector3 position)
     {
         return transmitters.Find(t => t.transform.position == position);

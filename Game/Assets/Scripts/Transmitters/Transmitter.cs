@@ -43,7 +43,6 @@ public class Transmitter : MonoBehaviour {
 
     private TransmitterGeneration generation;
     private Connections currentConnections;
-    
 
     // These lists needs to follow the following pattern
     // North, East, South, West, transmitter generation will do this
@@ -61,12 +60,15 @@ public class Transmitter : MonoBehaviour {
 
         transmitterController = FindObjectOfType<TransmitterController>();
         transmitterController.AddTransmitter(this);
+        DrawConnections();
     }
 
     public virtual void HandleClick(int direction)
     {
         if (transmitterController.AnyMoving)
             return;
+
+        DeactivateConnections();
     }
 
     public void GiveSpark(Spark spark)
@@ -88,8 +90,6 @@ public class Transmitter : MonoBehaviour {
         currentConnections.east = connections.east && HasConnection(pieces[1]);
         currentConnections.south = connections.south && HasConnection(pieces[2]);
         currentConnections.west = connections.west && HasConnection(pieces[3]);
-
-        DrawConnections();
     }
 
     public List<GameObject> GetConnectedPieces()
@@ -127,11 +127,8 @@ public class Transmitter : MonoBehaviour {
 
         for (int i = 0; i < pieces.Length; i++)
         {
-            if (pieces[i].GetComponent<LineRenderer>())
-            {
-                pieces[i].GetComponent<LineRenderer>().SetPosition(0, pieces[i].transform.position);
-                pieces[i].GetComponent<LineRenderer>().enabled = false;
-            }
+            if(pieces[i].transform.childCount > 0)
+                pieces[i].transform.GetChild(0).gameObject.SetActive(false);
         }
 
         if (startPoint)
@@ -147,57 +144,140 @@ public class Transmitter : MonoBehaviour {
             
     }
 
-    private void DrawConnections()
+    public void DrawConnections()
     {
         if (currentConnections.north)
         {
-            pieces[0].GetComponent<LineRenderer>().enabled = true;
-            pieces[0].GetComponent<LineRenderer>().SetPosition(0, pieces[0].transform.position);
-            pieces[0].GetComponent<LineRenderer>().SetPosition(1, pieces[0].transform.position + (pieces[0].transform.forward * map.nodeSpacing));
+            if(pieces[0].transform.childCount > 0 && pieces[0].transform.GetChild(0).gameObject.activeInHierarchy == false)
+                pieces[0].transform.GetChild(0).gameObject.SetActive(true);
         }
-        else
+        else 
         {
-            if(pieces[0].GetComponent<LineRenderer>())
-                pieces[0].GetComponent<LineRenderer>().enabled = false;
+            if (pieces[0].transform.childCount > 0 && pieces[0].transform.GetChild(0).gameObject.activeInHierarchy)
+                pieces[0].transform.GetChild(0).gameObject.SetActive(false);
         }
-           
+
 
         if (currentConnections.east)
         {
-            pieces[1].GetComponent<LineRenderer>().enabled = true;
-            pieces[1].GetComponent<LineRenderer>().SetPosition(0, pieces[1].transform.position);
-            pieces[1].GetComponent<LineRenderer>().SetPosition(1, pieces[1].transform.position + (pieces[1].transform.forward * map.nodeSpacing));
+            if (pieces[1].transform.childCount > 0 && pieces[1].transform.GetChild(0).gameObject.activeInHierarchy == false)
+                pieces[1].transform.GetChild(0).gameObject.SetActive(true);
         }
         else
         {
-            if (pieces[1].GetComponent<LineRenderer>())
-                pieces[1].GetComponent<LineRenderer>().enabled = false;
+            if (pieces[1].transform.childCount > 0 && pieces[1].transform.GetChild(0).gameObject.activeInHierarchy)
+                pieces[1].transform.GetChild(0).gameObject.SetActive(false);
         }
-            
 
         if (currentConnections.south)
         {
-            pieces[2].GetComponent<LineRenderer>().enabled = true;
-            pieces[2].GetComponent<LineRenderer>().SetPosition(0, pieces[2].transform.position);
-            pieces[2].GetComponent<LineRenderer>().SetPosition(1, pieces[2].transform.position + (pieces[2].transform.forward * map.nodeSpacing));
+            if (pieces[2].transform.childCount > 0 && pieces[2].transform.GetChild(0).gameObject.activeInHierarchy == false)
+                pieces[2].transform.GetChild(0).gameObject.SetActive(true);
         }
         else
         {
-            if (pieces[2].GetComponent<LineRenderer>())
-                pieces[2].GetComponent<LineRenderer>().enabled = false;
+            if (pieces[2].transform.childCount > 0 && pieces[2].transform.GetChild(0).gameObject.activeInHierarchy)
+                pieces[2].transform.GetChild(0).gameObject.SetActive(false);
         }
 
         if (currentConnections.west)
         {
-            pieces[3].GetComponent<LineRenderer>().enabled = true;
-            pieces[3].GetComponent<LineRenderer>().SetPosition(0, pieces[3].transform.position);
-            pieces[3].GetComponent<LineRenderer>().SetPosition(1, pieces[3].transform.position + (pieces[3].transform.forward * map.nodeSpacing));
+            if (pieces[3].transform.childCount > 0 && pieces[3].transform.GetChild(0).gameObject.activeInHierarchy == false)
+                pieces[3].transform.GetChild(0).gameObject.SetActive(true);
         }
         else
         {
-            if (pieces[3].GetComponent<LineRenderer>())
-                pieces[3].GetComponent<LineRenderer>().enabled = false;
+            if (pieces[3].transform.childCount > 0 && pieces[3].transform.GetChild(0).gameObject.activeInHierarchy)
+                pieces[3].transform.GetChild(0).gameObject.SetActive(false);
+        }
+    }
+
+    public void DeactivateConnection(Direction direction)
+    {
+        switch (direction)
+        {
+            case Direction.NORTH:
+                if (pieces[0].transform.childCount > 0)
+                    pieces[0].transform.GetChild(0).gameObject.SetActive(false);
+
+                break;
+            case Direction.EAST:
+                if (pieces[1].transform.childCount > 0)
+                    pieces[1].transform.GetChild(0).gameObject.SetActive(false);
+
+                break;
+            case Direction.SOUTH:
+                if (pieces[2].transform.childCount > 0)
+                    pieces[2].transform.GetChild(0).gameObject.SetActive(false);
+
+                break;
+            case Direction.WEST:
+                if (pieces[3].transform.childCount > 0)
+                    pieces[3].transform.GetChild(0).gameObject.SetActive(false);
+
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void DeactivateConnection(Transform parent)
+    {
+        parent.GetChild(0).gameObject.SetActive(false);
+    }
+
+    private void DeactivateConnections()
+    {
+        if (connections.north)
+        {
+            DeactivateConnection(Direction.NORTH);
+
+            RaycastHit hit;
+            Ray ray = new Ray(pieces[0].transform.position + pieces[0].transform.forward, pieces[0].transform.forward);
+
+            if(Physics.Raycast(ray, out hit, map.nodeSpacing, transmitterMask))
+            {
+                hit.transform.GetComponentInParent<Transmitter>().DeactivateConnection(hit.transform);
+            }
         }
 
+        if (connections.east)
+        {
+            DeactivateConnection(Direction.EAST);
+
+            RaycastHit hit;
+            Ray ray = new Ray(pieces[1].transform.position + pieces[1].transform.forward, pieces[1].transform.forward);
+
+            if (Physics.Raycast(ray, out hit, map.nodeSpacing, transmitterMask))
+            {
+                hit.transform.GetComponentInParent<Transmitter>().DeactivateConnection(hit.transform);
+            }
+        }
+
+        if (connections.south)
+        {
+            DeactivateConnection(Direction.SOUTH);
+
+            RaycastHit hit;
+            Ray ray = new Ray(pieces[2].transform.position + pieces[2].transform.forward, pieces[2].transform.forward);
+
+            if (Physics.Raycast(ray, out hit, map.nodeSpacing, transmitterMask))
+            {
+                hit.transform.GetComponentInParent<Transmitter>().DeactivateConnection(hit.transform);
+            }
+        }
+
+        if (connections.west)
+        {
+            DeactivateConnection(Direction.WEST);
+
+            RaycastHit hit;
+            Ray ray = new Ray(pieces[3].transform.position + pieces[3].transform.forward, pieces[3].transform.forward);
+
+            if (Physics.Raycast(ray, out hit, map.nodeSpacing, transmitterMask))
+            {
+                hit.transform.GetComponentInParent<Transmitter>().DeactivateConnection(hit.transform);
+            }
+        }
     }
 }

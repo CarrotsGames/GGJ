@@ -39,5 +39,6 @@ public class TransmitterRotational : Transmitter {
         isMoving = false;
 
         transmitterController.UpdateConnections();
+        transmitterController.DrawConnections();
     }
 }
