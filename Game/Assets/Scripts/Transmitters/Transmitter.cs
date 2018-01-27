@@ -9,8 +9,8 @@ public class Transmitter : MonoBehaviour {
     public GameObject transmitter;
     public GameObject nonTransmitter;
     public GameObject sparkPrefab;
+    public GameObject endPointPrefab;
     public LayerMask transmitterMask;
-    public float skinWidth = 0.05f;
 
     [Header("Transmitter Options")]
     public Connections connections;
@@ -152,6 +152,7 @@ public class Transmitter : MonoBehaviour {
         if (currentConnections.north)
         {
             pieces[0].GetComponent<LineRenderer>().enabled = true;
+            pieces[0].GetComponent<LineRenderer>().SetPosition(0, pieces[0].transform.position);
             pieces[0].GetComponent<LineRenderer>().SetPosition(1, pieces[0].transform.position + (pieces[0].transform.forward * map.nodeSpacing));
         }
         else
@@ -164,6 +165,7 @@ public class Transmitter : MonoBehaviour {
         if (currentConnections.east)
         {
             pieces[1].GetComponent<LineRenderer>().enabled = true;
+            pieces[1].GetComponent<LineRenderer>().SetPosition(0, pieces[1].transform.position);
             pieces[1].GetComponent<LineRenderer>().SetPosition(1, pieces[1].transform.position + (pieces[1].transform.forward * map.nodeSpacing));
         }
         else
@@ -176,6 +178,7 @@ public class Transmitter : MonoBehaviour {
         if (currentConnections.south)
         {
             pieces[2].GetComponent<LineRenderer>().enabled = true;
+            pieces[2].GetComponent<LineRenderer>().SetPosition(0, pieces[2].transform.position);
             pieces[2].GetComponent<LineRenderer>().SetPosition(1, pieces[2].transform.position + (pieces[2].transform.forward * map.nodeSpacing));
         }
         else
@@ -187,6 +190,7 @@ public class Transmitter : MonoBehaviour {
         if (currentConnections.west)
         {
             pieces[3].GetComponent<LineRenderer>().enabled = true;
+            pieces[3].GetComponent<LineRenderer>().SetPosition(0, pieces[3].transform.position);
             pieces[3].GetComponent<LineRenderer>().SetPosition(1, pieces[3].transform.position + (pieces[3].transform.forward * map.nodeSpacing));
         }
         else
