@@ -238,7 +238,7 @@ Prefab:
     - target: {fileID: 114503513968472068, guid: 43c9130925bbbb845b7cea75d4738113,
         type: 2}
       propertyPath: connections.north
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114503513968472068, guid: 43c9130925bbbb845b7cea75d4738113,
         type: 2}
@@ -248,7 +248,7 @@ Prefab:
     - target: {fileID: 114503513968472068, guid: 43c9130925bbbb845b7cea75d4738113,
         type: 2}
       propertyPath: connections.south
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114503513968472068, guid: 43c9130925bbbb845b7cea75d4738113,
         type: 2}
