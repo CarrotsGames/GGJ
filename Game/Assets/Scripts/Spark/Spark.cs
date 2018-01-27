@@ -120,7 +120,12 @@ public class Spark : MonoBehaviour {
         {
             timer += Time.deltaTime;
 
-            transform.position = Vector3.Lerp(startPos, endPos, timer / moveTime);
+            float t = timer / moveTime;
+
+            // Smootherstep
+            t = t * t * t * (t * (6f * t - 15f) + 10f);
+
+            transform.position = Vector3.Lerp(startPos, endPos, t);
 
             yield return null;
         }
