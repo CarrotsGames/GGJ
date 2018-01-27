@@ -584,12 +584,13 @@ PlayerSettings:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
   cloudServicesEnabled:
+    Collab: 1
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: d5970bac-b00a-4781-9e1e-6220db750e5b
-  projectName: Game
-  organizationId: maxturner
+  cloudProjectId: 80cfcecc-5a7a-4b77-ba5b-bf14fefb5d63
+  projectName: Game (1)
+  organizationId: mythau
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
