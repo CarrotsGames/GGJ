@@ -19,7 +19,10 @@ public class TransmitterGeneration : MonoBehaviour {
 
     public GameObject SpawnPiece(GameObject piece, Transform parent, Vector3 rotation)
     {
-        return Instantiate(piece, parent.position, Quaternion.Euler(rotation));
+        GameObject go = Instantiate(piece, parent.position, Quaternion.Euler(rotation));
+        go.transform.SetParent(parent, true);
+
+        return go;
     }
 
     public Vector3 GetRotation(Direction direction)
