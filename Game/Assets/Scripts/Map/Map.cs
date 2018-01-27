@@ -33,12 +33,7 @@ public class Map : MonoBehaviour {
             for (int z = 0; z < height; z++)
             {
                 Node node = new Node(new Vector3(x * nodeSpacing, 0, z * nodeSpacing));
-                SnapToNode snap = FindObjectsOfType<SnapToNode>().ToList().Find(n => node.Position == n.transform.position);
-                if (snap != null)
-                {
-                    snap.GiveNode(node);
-                    node.UpdateOccupied(true);
-                }
+                
 
                 nodes.Add(node);
             }
