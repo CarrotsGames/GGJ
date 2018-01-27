@@ -25,10 +25,10 @@ public class TransmitterRotational : Transmitter {
         Quaternion targetRotation = Quaternion.Euler(0, direction * rotationAmount, 0) * startingRotation;
 
         float timer = 0f;
-        while(transform.rotation != targetRotation)
+        while (timer <= rotationTime)
         {
             timer += Time.deltaTime;
-            transform.rotation = Quaternion.Lerp(startingRotation, targetRotation, timer);
+            transform.rotation = Quaternion.Lerp(startingRotation, targetRotation, timer / rotationTime);
             yield return null;
         }
 

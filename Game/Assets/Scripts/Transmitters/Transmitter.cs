@@ -5,18 +5,27 @@ using UnityEngine;
 public class Transmitter : MonoBehaviour {
     public static Map map;
 
+    [Header("Transmitter Prefabs")]
+    public GameObject transmitter;
+    public GameObject nonTransmitter;
+    public LayerMask transmitterMask;
+
     [Header("Transmitter Options")]
-    public Connections connections; 
+    public Connections connections;
+    public bool startPoint;
+    public bool endPoint;
+    public Color gizmoColour;
+
+    private TransmitterGeneration generation;
 
 	void Awake () {
         if (map == null)
             map = FindObjectOfType<Map>();
-	}
 
-    private void Update()
-    {
-
+        generation = new TransmitterGeneration();
+        generation.Generate(connections, transmitter, nonTransmitter, transform);
     }
+
     public virtual void HandleClick() { }
 
     protected void CheckConnections()
@@ -42,8 +51,12 @@ public class Transmitter : MonoBehaviour {
         }
     }
 
-    void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawRay(transform.position, Vector3.forward * 4);
+        if (Application.isPlaying)
+            return;
+
+        Gizmos.color = gizmoColour;
+        Gizmos.DrawCube(transform.position, Vector3.one);
     }
 }
