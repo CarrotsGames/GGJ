@@ -53,6 +53,9 @@ public class Transmitter : MonoBehaviour {
         if (map == null)
             map = FindObjectOfType<Map>();
 
+        if (startPoint && endPoint)
+            Debug.LogError("MAX STOP IT! An end point cannot be a start point!");
+
         GenerateTransmitter();
         CheckConnections();
 
@@ -114,7 +117,6 @@ public class Transmitter : MonoBehaviour {
         if (Physics.Raycast(ray, out hit, map.nodeSpacing - 1, transmitterMask))
             return true;
             
-
         return false;
     }
 
@@ -136,6 +138,11 @@ public class Transmitter : MonoBehaviour {
         {
             Spark spark = Instantiate(sparkPrefab, transform.position, Quaternion.identity).GetComponent<Spark>();
             spark.GiveTransmitter(this);
+        }
+
+        if (endPoint)
+        {
+            // Spawn the end point thing here
         }
             
     }

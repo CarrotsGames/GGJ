@@ -16,6 +16,7 @@ public class Spark : MonoBehaviour {
 
     private Map map;
 
+    private GameController gameController;
     private TransmitterController transmitterController;
     private Transmitter currentTransmitter;
     private Transmitter previousTransmitter;
@@ -23,6 +24,8 @@ public class Spark : MonoBehaviour {
     {
         map = FindObjectOfType<Map>();
         transmitterController = FindObjectOfType<TransmitterController>();
+        gameController = FindObjectOfType<GameController>();
+        gameController.UpdateSparkCount(1);
     }
 
     private void Update()
@@ -96,6 +99,16 @@ public class Spark : MonoBehaviour {
         }
     }
 
+    private void CheckEndPoint()
+    {
+        if (currentTransmitter.endPoint == false)
+            return;
+
+        gameController.UpdateSparkCount(-1);
+        currentTransmitter.RemoveSpark();
+        Destroy(gameObject);
+    }
+
     private IEnumerator Move(Transmitter newTransmitter)
     {
         isMoving = true;
@@ -115,5 +128,7 @@ public class Spark : MonoBehaviour {
         transform.position = endPos;
 
         isMoving = false;
+
+        CheckEndPoint();
     }
 }
