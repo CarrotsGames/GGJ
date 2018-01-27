@@ -171,15 +171,13 @@ MonoBehaviour:
   sparkPrefab: {fileID: 1616843970717382, guid: bc22881f596ad4045bb32c8f99a10d3b,
     type: 2}
   endPointPrefab: {fileID: 0}
-  endPointParticle: {fileID: 1660793031388366, guid: b5b4ca0cf9fa96d46880b81d9f3a0caf,
-    type: 2}
   transmitterMask:
     serializedVersion: 2
     m_Bits: 256
   connections:
     north: 0
-    east: 1
+    east: 0
     south: 0
-    west: 1
+    west: 0
   startPoint: 0
-  endPoint: 1
+  endPoint: 0
