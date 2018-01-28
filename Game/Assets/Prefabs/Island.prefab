@@ -176,6 +176,9 @@ MonoBehaviour:
   transmitterMask:
     serializedVersion: 2
     m_Bits: 256
+  connectSound: {fileID: 8300000, guid: f7765eefa66678249ba9c51cff8c460b, type: 3}
+  disconnect: {fileID: 8300000, guid: 84aa902fe9356904c9587436dd5f0392, type: 3}
+  rotation: {fileID: 8300000, guid: d07b36f1fc2eeef41aa409665972c90b, type: 3}
   connections:
     north: 0
     east: 0

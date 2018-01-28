@@ -305,7 +305,7 @@ Transform:
   - {fileID: 667633173}
   - {fileID: 1215929861}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &921110997
 GameObject:
@@ -350,17 +350,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d745efe21f83c4c8768861e44994fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transmitter: {fileID: 1934041178725868, guid: d5bfb4b32c7d2524cb861d8a98a31ada,
+  transmitter: {fileID: 1014137801747486, guid: 5867ec1eb640c3e40bad315b4428e54e,
     type: 2}
-  nonTransmitter: {fileID: 1617692176486520, guid: 165882ee42c36d04f93937e2e9c1a9d9,
+  nonTransmitter: {fileID: 1297877966941366, guid: 225e3442f87444c459663eef58defec3,
     type: 2}
   sparkPrefab: {fileID: 1616843970717382, guid: bc22881f596ad4045bb32c8f99a10d3b,
     type: 2}
   endPointPrefab: {fileID: 0}
-  endPointParticle: {fileID: 0}
+  endPointParticle: {fileID: 1562541927692776, guid: c01bb000bce3f1046bc1fd702b6bf176,
+    type: 2}
   transmitterMask:
     serializedVersion: 2
     m_Bits: 256
+  connectSound: {fileID: 8300000, guid: f7765eefa66678249ba9c51cff8c460b, type: 3}
+  disconnect: {fileID: 8300000, guid: 84aa902fe9356904c9587436dd5f0392, type: 3}
+  rotation: {fileID: 8300000, guid: d07b36f1fc2eeef41aa409665972c90b, type: 3}
   connections:
     north: 1
     east: 1
@@ -647,6 +651,9 @@ MonoBehaviour:
   transmitterMask:
     serializedVersion: 2
     m_Bits: 256
+  connectSound: {fileID: 0}
+  disconnect: {fileID: 0}
+  rotation: {fileID: 0}
   connections:
     north: 0
     east: 1
@@ -701,6 +708,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.1334232
       objectReference: {fileID: 0}
+    - target: {fileID: 23102374441776608, guid: 497fba0f08cfd8949996b85746e7fd24,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e955f7fc9fcb2345af0f23e9c294449, type: 2}
+    - target: {fileID: 33908858346887346, guid: 497fba0f08cfd8949996b85746e7fd24,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 0107f341f7ca3f0489280f6c7e425b18, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 497fba0f08cfd8949996b85746e7fd24, type: 2}
   m_IsPrefabParent: 0
@@ -1039,7 +1056,7 @@ Prefab:
     - target: {fileID: 224308304022776560, guid: 5269577fed36bad49b95ffc56831846e,
         type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224308304022776560, guid: 5269577fed36bad49b95ffc56831846e,
         type: 2}

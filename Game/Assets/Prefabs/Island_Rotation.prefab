@@ -94,7 +94,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507726309432994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.69073, y: 6.2332344, z: -22.108578}
+  m_LocalPosition: {x: -0.5740943, y: -1.2873874, z: -1.2079775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4174725288428136}
@@ -114,7 +114,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a34bc00c5a4134a468dfe1eb1ceafb98, type: 2}
+  - {fileID: 2100000, guid: 8e955f7fc9fcb2345af0f23e9c294449, type: 2}
   - {fileID: 2100000, guid: 058b85376dba10a47b31aa20e9adb13f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -140,7 +140,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1288030151316060}
-  m_Mesh: {fileID: 4300000, guid: 4e959b63556d7f04f9a18e428c5bf335, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 0107f341f7ca3f0489280f6c7e425b18, type: 3}
 --- !u!65 &65714465171035214
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -164,9 +164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d745efe21f83c4c8768861e44994fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transmitter: {fileID: 1934041178725868, guid: d5bfb4b32c7d2524cb861d8a98a31ada,
+  transmitter: {fileID: 1014137801747486, guid: 5867ec1eb640c3e40bad315b4428e54e,
     type: 2}
-  nonTransmitter: {fileID: 1617692176486520, guid: 165882ee42c36d04f93937e2e9c1a9d9,
+  nonTransmitter: {fileID: 1297877966941366, guid: 225e3442f87444c459663eef58defec3,
     type: 2}
   sparkPrefab: {fileID: 1616843970717382, guid: bc22881f596ad4045bb32c8f99a10d3b,
     type: 2}
@@ -176,6 +176,9 @@ MonoBehaviour:
   transmitterMask:
     serializedVersion: 2
     m_Bits: 256
+  connectSound: {fileID: 8300000, guid: f7765eefa66678249ba9c51cff8c460b, type: 3}
+  disconnect: {fileID: 8300000, guid: 84aa902fe9356904c9587436dd5f0392, type: 3}
+  rotation: {fileID: 8300000, guid: d07b36f1fc2eeef41aa409665972c90b, type: 3}
   connections:
     north: 0
     east: 0
