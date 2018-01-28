@@ -161,7 +161,12 @@ public class Transmitter : MonoBehaviour {
         if (currentConnections.north)
         {
             if(pieces[0].transform.childCount > 0 && pieces[0].transform.GetChild(0).gameObject.activeInHierarchy == false)
+            {
                 pieces[0].transform.GetChild(0).gameObject.SetActive(true);
+
+                if (connectSound != null)
+                    AudioSource.PlayClipAtPoint(connectSound, transform.position);
+            }
         }
         else 
         {
@@ -173,7 +178,12 @@ public class Transmitter : MonoBehaviour {
         if (currentConnections.east)
         {
             if (pieces[1].transform.childCount > 0 && pieces[1].transform.GetChild(0).gameObject.activeInHierarchy == false)
+            {
                 pieces[1].transform.GetChild(0).gameObject.SetActive(true);
+
+                if (connectSound != null)
+                    AudioSource.PlayClipAtPoint(connectSound, transform.position);
+            }
         }
         else
         {
@@ -184,7 +194,12 @@ public class Transmitter : MonoBehaviour {
         if (currentConnections.south)
         {
             if (pieces[2].transform.childCount > 0 && pieces[2].transform.GetChild(0).gameObject.activeInHierarchy == false)
+            {
                 pieces[2].transform.GetChild(0).gameObject.SetActive(true);
+
+                if(connectSound != null)
+                    AudioSource.PlayClipAtPoint(connectSound, transform.position);
+            }
         }
         else
         {
@@ -195,16 +210,18 @@ public class Transmitter : MonoBehaviour {
         if (currentConnections.west)
         {
             if (pieces[3].transform.childCount > 0 && pieces[3].transform.GetChild(0).gameObject.activeInHierarchy == false)
-                pieces[3].transform.GetChild(0).gameObject.SetActive(true);
+            {
+                pieces[0].transform.GetChild(0).gameObject.SetActive(true);
+
+                if (connectSound != null)
+                    AudioSource.PlayClipAtPoint(connectSound, transform.position);
+            }
         }
         else
         {
             if (pieces[3].transform.childCount > 0 && pieces[3].transform.GetChild(0).gameObject.activeInHierarchy)
                 pieces[3].transform.GetChild(0).gameObject.SetActive(false);
         }
-
-       // if(HasConnection && connectSound != null)
-
     }
 
     public void DeactivateConnection(Direction direction)
