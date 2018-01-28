@@ -61,6 +61,7 @@ public class UIController : MonoBehaviour {
     public void ToggleConfirmRestart()
     {
         confirmRestart.gameObject.SetActive(!confirmRestart.gameObject.activeInHierarchy);
+        Time.timeScale = 1f;
     }
 
     public void Restart()
