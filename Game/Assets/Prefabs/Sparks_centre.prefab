@@ -214,9 +214,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed8bf1e8f867a5f46839c5ae4eba2be5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenMoves: 0.5
+  timeBetweenMoves: 0.01
   timeBeforeBreak: 10
-  moveTime: 1
+  moveTime: 0.5
   transmitterMask:
     serializedVersion: 2
     m_Bits: 256
