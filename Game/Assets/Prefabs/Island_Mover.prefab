@@ -242,10 +242,10 @@ MonoBehaviour:
   connections:
     north: 0
     east: 0
-    south: 1
+    south: 0
     west: 0
   startPoint: 0
-  endPoint: 1
+  endPoint: 0
   slideTime: 1
   slideDirection: 0
   islandMask:
