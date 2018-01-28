@@ -9,6 +9,18 @@ public class TransmitterSlide : Transmitter {
     public float slideTime = 1f;
     public SlideDirection slideDirection;
     public LayerMask islandMask;
+    public GameObject slideParticles;
+
+    protected override void Awake()
+    {
+        base.Awake();
+
+        GameObject go = Instantiate(slideParticles, transform.position, slideParticles.transform.rotation);
+        go.transform.SetParent(transform);
+
+        if (slideDirection == SlideDirection.HORIZONTAL)
+            go.transform.Rotate(new Vector3(0, 90, 0));
+    }
 
     public override void HandleClick(int direction)
     {

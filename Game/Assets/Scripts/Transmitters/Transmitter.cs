@@ -54,7 +54,7 @@ public class Transmitter : MonoBehaviour {
     // North, East, South, West, transmitter generation will do this
     private GameObject[] pieces;
 
-    void Awake () {
+    protected virtual void Awake () {
         if (map == null)
             map = FindObjectOfType<Map>();
 
