@@ -211,7 +211,7 @@ public class Transmitter : MonoBehaviour {
         {
             if (pieces[3].transform.childCount > 0 && pieces[3].transform.GetChild(0).gameObject.activeInHierarchy == false)
             {
-                pieces[0].transform.GetChild(0).gameObject.SetActive(true);
+                pieces[3].transform.GetChild(0).gameObject.SetActive(true);
 
                 if (connectSound != null)
                     AudioSource.PlayClipAtPoint(connectSound, transform.position);
