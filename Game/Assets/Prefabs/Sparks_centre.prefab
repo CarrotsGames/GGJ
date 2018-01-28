@@ -215,11 +215,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenMoves: 0.01
-  timeBeforeBreak: 10
   moveTime: 0.5
   transmitterMask:
     serializedVersion: 2
     m_Bits: 256
+  arrivalSound: {fileID: 8300000, guid: 1719f8f3d9757af40adc6cb147af7209, type: 3}
+  arrivalParticle: {fileID: 1336218119359138, guid: f23e4cd4d227c8e43ac245cf16fa0ef1,
+    type: 2}
 --- !u!198 &198121848433816574
 ParticleSystem:
   m_ObjectHideFlags: 1
