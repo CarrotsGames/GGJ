@@ -120,7 +120,7 @@ public class Spark : MonoBehaviour {
 
         Instantiate(arrivalParticle, transform.position, arrivalParticle.transform.rotation);
         Invoke("Remove", 1.35f);
-        AudioSource.PlayClipAtPoint(arrivalSound, Camera.main.transform.position);
+        //AudioSource.PlayClipAtPoint(arrivalSound, Camera.main.transform.position);
     }
 
     private IEnumerator Move(Transmitter newTransmitter)
