@@ -13,6 +13,11 @@ public class Transmitter : MonoBehaviour {
     public GameObject endPointParticle;
     public LayerMask transmitterMask;
 
+    [Header("Transmitter Audio")]
+    public AudioClip connectSound;
+    public AudioClip disconnect;
+    public AudioClip rotation;
+
     [Header("Transmitter Options")]
     public Connections connections;
     public bool startPoint;
@@ -197,6 +202,9 @@ public class Transmitter : MonoBehaviour {
             if (pieces[3].transform.childCount > 0 && pieces[3].transform.GetChild(0).gameObject.activeInHierarchy)
                 pieces[3].transform.GetChild(0).gameObject.SetActive(false);
         }
+
+       // if(HasConnection && connectSound != null)
+
     }
 
     public void DeactivateConnection(Direction direction)

@@ -23,9 +23,4 @@ public class AudioController : MonoBehaviour {
         if(musicTrack != null)
             musicTrack.Play();
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

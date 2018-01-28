@@ -9,6 +9,8 @@ public class UIController : MonoBehaviour {
     public RectTransform confirmQuit;
     public RectTransform confirmRestart;
 
+
+    private bool isConfiming;
     private void Awake()
     {
         if (pauseMenu)
@@ -32,8 +34,14 @@ public class UIController : MonoBehaviour {
 
         if (Time.timeScale == 0f)
         {
-            if (confirmQuit.gameObject.activeInHierarchy)
-                ToggleConfirmQuit();
+            if (isConfiming)
+            {
+                if (confirmQuit.gameObject.activeInHierarchy)
+                    ToggleConfirmQuit();
+                else if (confirmRestart.gameObject.activeInHierarchy)
+                    ToggleConfirmRestart();
+            }
+            
             else
             {
                 Time.timeScale = 1f;
@@ -51,6 +59,7 @@ public class UIController : MonoBehaviour {
     public void ToggleConfirmQuit()
     {
         confirmQuit.gameObject.SetActive(!confirmQuit.gameObject.activeInHierarchy);
+        isConfiming = (confirmQuit.gameObject.activeInHierarchy);
     }
 
     public void Quit()
@@ -61,11 +70,12 @@ public class UIController : MonoBehaviour {
     public void ToggleConfirmRestart()
     {
         confirmRestart.gameObject.SetActive(!confirmRestart.gameObject.activeInHierarchy);
-        Time.timeScale = 1f;
+        isConfiming = (confirmRestart.gameObject.activeInHierarchy);
     }
 
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
     }
 }
