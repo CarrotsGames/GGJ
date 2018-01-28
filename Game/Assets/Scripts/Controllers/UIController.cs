@@ -16,6 +16,9 @@ public class UIController : MonoBehaviour {
 
         if (confirmQuit)
             confirmQuit.gameObject.SetActive(false);
+
+        if (confirmRestart)
+            confirmRestart.gameObject.SetActive(false);
     }
 
     private void Update()

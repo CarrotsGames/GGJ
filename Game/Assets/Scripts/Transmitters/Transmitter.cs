@@ -142,7 +142,11 @@ public class Transmitter : MonoBehaviour {
         if (endPoint)
         {
             // Spawn the end point thing here
-            Instantiate(endPointParticle, transform.position, endPointParticle.transform.rotation);
+            if(endPointPrefab != null)
+                Instantiate(endPointPrefab, transform.position, endPointParticle.transform.rotation);
+
+            if (endPointParticle != null)
+                Instantiate(endPointParticle, transform.position, endPointParticle.transform.rotation);
         }
             
     }
