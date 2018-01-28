@@ -24,6 +24,9 @@ public class TransmitterSlide : Transmitter {
         if (IsMoving)
             return;
 
+        if (rotationSound)
+            AudioSource.PlayClipAtPoint(rotationSound, Camera.main.transform.position);
+
         Vector3 d = slideDirection == SlideDirection.VERTICAL ? Vector3.forward : Vector3.right;
         if (direction < 0)
             d = -d;

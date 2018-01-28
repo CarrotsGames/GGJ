@@ -23,6 +23,9 @@ public class TransmitterRotational : Transmitter {
 
     private IEnumerator Rotate(float direction)
     {
+        if(rotationSound)
+            AudioSource.PlayClipAtPoint(rotationSound, Camera.main.transform.position);
+
         isMoving = true;
         Quaternion startingRotation = transform.rotation;
         Quaternion targetRotation = Quaternion.Euler(0, direction * rotationAmount, 0) * startingRotation;

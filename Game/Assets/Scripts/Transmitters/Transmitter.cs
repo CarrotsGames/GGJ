@@ -15,8 +15,8 @@ public class Transmitter : MonoBehaviour {
 
     [Header("Transmitter Audio")]
     public AudioClip connectSound;
-    public AudioClip disconnect;
-    public AudioClip rotation;
+    public AudioClip disconnectSound;
+    public AudioClip rotationSound;
 
     [Header("Transmitter Options")]
     public Connections connections;
@@ -152,8 +152,7 @@ public class Transmitter : MonoBehaviour {
 
             if (endPointParticle != null)
                 Instantiate(endPointParticle, transform.position, endPointParticle.transform.rotation);
-        }
-            
+        }   
     }
 
     public void DrawConnections()
@@ -173,7 +172,6 @@ public class Transmitter : MonoBehaviour {
             if (pieces[0].transform.childCount > 0 && pieces[0].transform.GetChild(0).gameObject.activeInHierarchy)
                 pieces[0].transform.GetChild(0).gameObject.SetActive(false);
         }
-
 
         if (currentConnections.east)
         {
@@ -201,6 +199,7 @@ public class Transmitter : MonoBehaviour {
                     AudioSource.PlayClipAtPoint(connectSound, transform.position);
             }
         }
+
         else
         {
             if (pieces[2].transform.childCount > 0 && pieces[2].transform.GetChild(0).gameObject.activeInHierarchy)

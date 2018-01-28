@@ -7,6 +7,8 @@ public class Spark : MonoBehaviour {
 	public float timeBeforeBreak = 3f;
     public float moveTime = 1f;
     public LayerMask transmitterMask;
+    public AudioClip arrivalSound;
+    public GameObject arrivalParticle;
 
     public bool IsMoving { get { return isMoving; } }
     public Transmitter CurrentTransmitter { get { return currentTransmitter; } }
@@ -116,9 +118,9 @@ public class Spark : MonoBehaviour {
         if (currentTransmitter.endPoint == false)
             return;
 
-        gameController.UpdateSparkCount(-1);
-        currentTransmitter.RemoveSpark();
-        Destroy(gameObject);
+        Instantiate(arrivalParticle, transform.position, arrivalParticle.transform.rotation);
+        Invoke("Remove", 1.35f);
+        AudioSource.PlayClipAtPoint(arrivalSound, Camera.main.transform.position);
     }
 
     private IEnumerator Move(Transmitter newTransmitter)
@@ -147,5 +149,13 @@ public class Spark : MonoBehaviour {
         isMoving = false;
 
         CheckEndPoint();
+            
+    }
+
+    private void Remove()
+    {
+        gameController.UpdateSparkCount(-1);
+        currentTransmitter.RemoveSpark();
+        Destroy(gameObject);
     }
 }
