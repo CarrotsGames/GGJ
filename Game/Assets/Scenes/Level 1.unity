@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d745efe21f83c4c8768861e44994fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transmitter: {fileID: 1014137801747486, guid: 5867ec1eb640c3e40bad315b4428e54e,
+  transmitter: {fileID: 1540951267088236, guid: 5867ec1eb640c3e40bad315b4428e54e,
     type: 2}
   nonTransmitter: {fileID: 1297877966941366, guid: 225e3442f87444c459663eef58defec3,
     type: 2}
@@ -363,8 +363,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   connectSound: {fileID: 8300000, guid: f7765eefa66678249ba9c51cff8c460b, type: 3}
-  disconnect: {fileID: 8300000, guid: 84aa902fe9356904c9587436dd5f0392, type: 3}
-  rotation: {fileID: 8300000, guid: d07b36f1fc2eeef41aa409665972c90b, type: 3}
+  disconnectSound: {fileID: 0}
+  rotationSound: {fileID: 0}
   connections:
     north: 1
     east: 1
@@ -652,8 +652,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   connectSound: {fileID: 0}
-  disconnect: {fileID: 0}
-  rotation: {fileID: 0}
+  disconnectSound: {fileID: 0}
+  rotationSound: {fileID: 0}
   connections:
     north: 0
     east: 1
